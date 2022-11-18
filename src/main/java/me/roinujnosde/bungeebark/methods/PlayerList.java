@@ -3,7 +3,6 @@ package me.roinujnosde.bungeebark.methods;
 import com.google.common.io.ByteArrayDataInput;
 import com.google.common.io.ByteArrayDataOutput;
 import com.google.common.io.ByteStreams;
-import com.sun.corba.se.impl.orbutil.ObjectUtility;
 import com.velocitypowered.api.proxy.Player;
 import com.velocitypowered.api.proxy.ServerConnection;
 import com.velocitypowered.api.proxy.messages.ChannelIdentifier;
@@ -11,7 +10,6 @@ import com.velocitypowered.api.proxy.server.RegisteredServer;
 import me.roinujnosde.bungeebark.BungeeBark;
 
 import java.util.Collection;
-import java.util.Collections;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -39,12 +37,10 @@ public class PlayerList extends Method {
                 output.writeUTF(target);
                 players = server.get().getPlayersConnected();
             } else {
-                players = Collections.emptyList();
+                return;
             }
         }
-        if (!players.isEmpty()) {
-            output.writeUTF(players.stream().map(Player::getUsername).collect(Collectors.joining(", ")));
-        }
+        output.writeUTF(players.stream().map(Player::getUsername).collect(Collectors.joining(", ")));
 
         connection.sendPluginMessage(identifier, output.toByteArray());
     }

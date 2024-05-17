@@ -20,7 +20,7 @@ import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-@Plugin(id = "bungeebark", name = "BungeeBark", version = "0.0.1", authors = "RoinujNosde")
+@Plugin(id = "bungeebark", name = "BungeeBark", version = "0.0.2", authors = "RoinujNosde")
 public class BungeeBark {
 
     private static final ChannelIdentifier LEGACY_CHANNEL = new LegacyChannelIdentifier("BungeeCord");

@@ -104,7 +104,6 @@ public class BungeeBark {
             }
             ServerConnection serverConnection = currentServer.get();
             Queue<PluginMessage> queue = queueMap.get(serverConnection.getServer());
-            logger.info(String.valueOf(queue));
             if (queue != null) {
                 while (!queue.isEmpty()) {
                     PluginMessage message = queue.poll();
